@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "JsonMsgK",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+    {
+      "client": "Heinz",
+      "clientID": 1234567890
+    }
+  ],
+  "required": [
+    "client",
+    "clientID"
+  ],
+  "properties": {
+    "client": {
+      "$id": "#/properties/client",
+      "type": "string",
+      "title": "Client Name",
+      "description": "Name of the client",
+      "default": "",
+      "examples": [
+        "Heinz"
+      ]
+    },
+    "clientID": {
+      "$id": "#/properties/clientID",
+      "type": "integer",
+      "title": "Client ID",
+      "description": "The indexed ID for a client",
+      "default": "",
+      "examples": [
+        1234567890
+      ]
+    }
+
+  }
+}

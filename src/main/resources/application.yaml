@@ -1,0 +1,38 @@
+bootstrap.servers: "<Bootstrap-Server>:9092"
+#key.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+#value.serializer: io.confluent.kafka.serializers.KafkaJsonSerializer
+#value.serializer: io.confluent.kafka.serializers.json.KafkaJsonSchemaSerializer
+schema.registry.url: "<Schema Registry URL>>"
+schema.registry.basic.auth.user.info: "<Username>:<Password>"
+basic.auth.credentials.source: "USER_INFO"
+sasl.mechanism: "PLAIN"
+sasl.jaas.config: "org.apache.kafka.common.security.plain.PlainLoginModule   required username='<UserName>'   password='<Password>>';"
+security.protocol: "SASL_SSL"
+client.dns.lookup: "use_all_dns_ips"
+acks: "all"
+enable.idempotence: "true"
+transactional.id: "prod-1"
+
+consume.group.id: "OTELInterceptConsumerID"
+producer.id: "OTELInterceptProduce-1"
+#consume.enable.auto.commit: "true"
+consume.enable.auto.commit: "false"
+consume.isolation.level: "read_committed"
+
+topic: "avroTopic.ot.intercept"
+
+# REST listening port for POST Request
+server:
+  port: 9099
+
+
+logging:
+level:
+root: INFO
+io.confluent.heinz: ERROR
+org.apache.kafka.clients.FetchSessionHandler: ERROR
+io.confluent.heinz.interceptor.restController: INFO
+io.confluent.heinz.interceptor.ConfluentSession: INFO
+
+
+
